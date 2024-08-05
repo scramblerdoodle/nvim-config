@@ -17,4 +17,5 @@ return {
       lspconfig.pyright.setup({})
     end,
   },
+  enabled = false,
 }
