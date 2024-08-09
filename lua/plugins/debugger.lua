@@ -66,6 +66,11 @@ return {
         dap.step_out()
       end, { desc = "Step Out" })
 
+      -- Open REPL
+      vim.keymap.set("n", "<Leader>dR", function()
+        require("dap").repl.open()
+      end)
+
       -- Unknown or Buggy Commands
       -- vim.keymap.set({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end, { desc = "Hover" })
       -- vim.keymap.set({ "n", "v" }, "<leader>dp", function() require("dap.ui.widgets").preview() end, { desc = "Preview" })
