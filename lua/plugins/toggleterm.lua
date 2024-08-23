@@ -1,7 +1,7 @@
 return {
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    opts = { direction = "horizontal", open_mapping = [[<c-\>]] },
-  },
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		opts = { direction = "horizontal", open_mapping = [[<c-\>]] },
+	},
 }
