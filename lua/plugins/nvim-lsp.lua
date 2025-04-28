@@ -5,14 +5,25 @@ return {
 		opts = function(_, opts)
 			-- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
 			vim.list_extend(opts.ensure_installed, {
-				"black",
-				"ruff",
-				"debugpy",
+				-- "black",
+				-- "ruff",
+				-- "debugpy",
 				-- "mypy",
-				"ruff-lsp",
-				"pyright",
+				-- "ruff-lsp",
+				-- "pyright",
+				"rust-analyzer",
 			})
 		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			setup = {
+				rust_analyzer = function()
+					return true
+				end,
+			},
+		},
 	},
 
 	-- Setup up format with new `conform.nvim`

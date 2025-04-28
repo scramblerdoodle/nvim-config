@@ -9,14 +9,20 @@ return {
         desc = "Find Plugin File",
       },
 	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		opts = {
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"nvim-telescope/telescope-ui-select.nvim",
+	-- 	opts = {
+	-- 		extensions = {
+	-- 			["ui-select"] = {
+	-- 				require("telescope.themes").get_dropdown({}),
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
+	-- {
+	-- 	"nvim-telescope/telescope-project.nvim",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("project")
+	-- 	end,
+	-- },
 }
