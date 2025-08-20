@@ -1,20 +1,20 @@
 return {
 	-- Add `pyright` to mason
 	-- TODO: check following tools -> mypy types-requests types-docutils
-	-- {
-	--   "williamboman/mason.nvim",
-	--   opts = function(_, opts)
-	--     -- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
-	--     vim.list_extend(opts.ensure_installed, {
-	--       "black",
-	--       "ruff",
-	--       "debugpy",
-	--       -- "mypy",
-	--       "ruff-lsp",
-	--       "pyright",
-	--     })
-	--   end,
-	-- },
+	{
+		"williamboman/mason.nvim",
+		opts = function(_, opts)
+			-- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
+			vim.list_extend(opts.ensure_installed, {
+				"black",
+				"ruff",
+				"debugpy",
+				-- "mypy",
+				"ruff-lsp",
+				"pyright",
+			})
+		end,
+	},
 
 	-- Setup `neotest`
 	{
@@ -39,25 +39,35 @@ return {
 		dependencies = {},
 		opts = {
 			servers = {
-				pyright = {},
+				pyright = {
+					settings = { typeCheckingMode = "basic" },
+				},
 				pylsp = {
 					mason = false,
 					settings = {
 						pylsp = {
 							plugins = {
+								flake8 = {
+									maxLineLength = 120,
+								},
 								rope_autoimport = {
 									enabled = true,
+								},
+								pycodestyle = {
+									maxLineLength = 120,
+									enabled = false,
+									ignore = { "E501" },
 								},
 							},
 						},
 					},
 				},
+
 				ruff_lsp = {
 					-- handlers = {
 					--   ["textDocument/publishDiagnostics"] = function() end,
 					-- },
 				},
-				jedi_language_server = {},
 			},
 			setup = {
 				pylsp = function()
