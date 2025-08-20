@@ -9,10 +9,20 @@ return {
 				"ruff",
 				"debugpy",
 				-- "mypy",
-				"ruff-lsp",
-				"pyright",
+				-- "pyright",
+				"rust-analyzer",
 			})
 		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			setup = {
+				rust_analyzer = function()
+					return true
+				end,
+			},
+		},
 	},
 
 	-- Setup up format with new `conform.nvim`

@@ -78,7 +78,11 @@ return {
 			-- vim.keymap.set("n", "<leader>ds", function() local widgets = require("dap.ui.widgets") widgets.centered_float(widgets.scopes) end, { desc = "Scopes" })
 		end,
 	},
-
+	{
+		"mrcjkb/rustaceanvim",
+		version = vim.fn.has("nvim-0.10.0") == 0 and "^4" or false,
+		ft = { "rust" },
+	},
 	{
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
