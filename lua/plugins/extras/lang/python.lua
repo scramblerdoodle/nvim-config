@@ -10,7 +10,6 @@ return {
 				"ruff",
 				"debugpy",
 				-- "mypy",
-				"ruff-lsp",
 				"pyright",
 			})
 		end,
