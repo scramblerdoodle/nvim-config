@@ -3,7 +3,7 @@ return {
 	optional = true,
 	opts = {
 		dashboard = {
-			width = 50,
+			width = 56,
 			preset = {
 				header = [[
 
@@ -62,7 +62,7 @@ return {
             { icon = " ", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})", key = "c" },
             { icon = "󰦛 ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰁯 ", action = function() require("persistence").load({ last = true }) end, desc = "Restore Last Session", key = "S" },
-            -- { icon = " ", desc = "Lazy Extras", action = ":LazyExtras", key = "x" },
+            { icon = " ", desc = "Lazy Extras", action = ":LazyExtras", key = "x" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
           },

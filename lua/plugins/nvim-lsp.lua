@@ -1,7 +1,7 @@
 return {
 	-- Mason config
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		opts = function(_, opts)
 			-- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
 			vim.list_extend(opts.ensure_installed, {
@@ -10,7 +10,7 @@ return {
 				"debugpy",
 				-- "mypy",
 				-- "pyright",
-				"rust-analyzer",
+				-- "rust-analyzer",
 			})
 		end,
 	},
@@ -18,9 +18,9 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			setup = {
-				rust_analyzer = function()
-					return true
-				end,
+				-- rust_analyzer = function()
+				-- 	return true
+				-- end,
 			},
 		},
 	},
