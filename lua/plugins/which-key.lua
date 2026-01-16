@@ -5,6 +5,18 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
+		spec = {
+			{
+				"<leader>z",
+				group = "language",
+				icon = "",
+			},
+			{
+				"<leader>cp",
+				group = "Copilot",
+				icon = "",
+			},
+		},
 	},
 	keys = {
 		{
