@@ -2,6 +2,12 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- if I ever want jkl; instead of hjkl
+-- noremap ; l
+-- noremap l k
+-- noremap k j
+-- noremap j h
+
 vim.keymap.set("n", "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save File" })
 vim.keymap.set(
 	"n",
