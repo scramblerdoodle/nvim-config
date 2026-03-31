@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.opt.colorcolumn = "120"
 vim.g.trouble_lualine = false
+-- vim.opt.tabstop = 4
+vim.opt.expandtab = false

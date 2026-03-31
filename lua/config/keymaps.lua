@@ -27,13 +27,3 @@ vim.keymap.set(
 	"<cmd>set spell spelllang=pt_br<cr><esc>",
 	{ desc = "Set Text Language to Brazilian" }
 )
-
-vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
-	expr = true,
-	replace_keycodes = false,
-})
-
-vim.keymap.set("n", "<leader>cps", "copilot#Suggest()", { desc = "Copilot Suggest" })
-vim.keymap.set("n", "<leader>cpD", "<cmd>Copilot disable<cr><esc>", { desc = "Copilot Disable" })
-vim.keymap.set("n", "<leader>cpE", "<cmd>Copilot enable<cr><esc>", { desc = "Copilot Enable" })
-vim.g.copilot_no_tab_map = true
