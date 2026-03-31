@@ -1,4 +1,5 @@
 return {
+	-- Mason ensure kotlin LSP, DAP and Lint/Fmt is installed
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
@@ -10,6 +11,21 @@ return {
 			})
 		end,
 	},
+
+	-- Setup `neotest`
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"codymikol/neotest-kotlin",
+		},
+		opts = {
+			adapters = {
+				["neotest-kotlin"] = {},
+			},
+		},
+	},
+
+	-- Debugger Config
 	{
 		"mfussenegger/nvim-dap",
 		optional = true,
@@ -60,6 +76,10 @@ return {
 			}
 		end,
 	},
+
+	-- TODO: This seems to be deprecated
+	-- 		 The DAP is working w the attach to debug sesh option above
+	-- { "Mgenuit/nvim-dap-kotlin", config = true },
 	{
 		"neovim/nvim-lspconfig",
 		opts = function(_, opts)
@@ -74,6 +94,8 @@ return {
 			})
 		end,
 	},
+
+	-- Custom Kotlin plugin for configuring everything up together
 	{
 		"AlexandrosAlexiou/kotlin.nvim",
 		ft = { "kotlin" },
