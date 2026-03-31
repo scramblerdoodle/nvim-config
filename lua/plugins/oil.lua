@@ -1,5 +1,7 @@
 return {
 	"stevearc/oil.nvim",
+	default_file_explorer = false,
+	enabled = false,
 	---@module 'oil'
 	opts = {},
 	-- Optional dependencies
