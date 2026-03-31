@@ -25,5 +25,6 @@ vim.keymap.set(
 	"n",
 	"<leader>zB",
 	"<cmd>set spell spelllang=pt_br<cr><esc>",
-	{ desc = "Set Text Language to Brazilian" }
+	{ desc = "Set Text Language to Brazilian (PT)" }
 )
+vim.keymap.set("n", "<leader>qh", "<cmd>lua Snacks.dashboard()<cr><esc>", { desc = "Open dashboard" })
