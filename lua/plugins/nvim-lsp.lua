@@ -33,6 +33,7 @@ return {
 			formatters_by_ft = {
 				["python"] = { "ruff", "black", "isort" },
 				["json"] = { "jq" },
+				["kotlin"] = { "ktlint" },
 			},
 		},
 	},

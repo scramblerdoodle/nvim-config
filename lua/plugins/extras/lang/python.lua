@@ -70,7 +70,7 @@ return {
 			},
 			setup = {
 				pylsp = function()
-					LazyVim.lsp.on_attach(function(client, _)
+					Snacks.util.lsp.on(function(_, client)
 						if client.name == "pylsp" then
 							-- disable hover in favor of jedi-language-server
 							client.server_capabilities.hoverProvider = false
@@ -78,7 +78,7 @@ return {
 					end)
 				end,
 				ruff_lsp = function()
-					require("lazyvim.util").lsp.on_attach(function(client, _)
+					Snacks.util.lsp.on(function(_, client)
 						if client.name == "ruff_lsp" then
 							-- Disable hover in favor of Pyright
 							client.server_capabilities.hoverProvider = false
@@ -86,7 +86,7 @@ return {
 					end)
 				end,
 				pyright = function()
-					require("lazyvim.util").lsp.on_attach(function(client, _)
+					Snacks.util.lsp.on(function(_, client)
 						if client.name == "pyright" then
 							-- disable hover in favor of jedi-language-server
 							client.server_capabilities.hoverProvider = false
@@ -115,13 +115,14 @@ return {
 	-- },
 
 	-- For selecting virtual envs
+	-- TODO: ft = "python" not really doing anything, this shows up for other file types too
 	{
 		"linux-cultist/venv-selector.nvim",
-		branch = "main",
 		dependencies = {
 			"mfussenegger/nvim-dap-python",
+			{ "nvim-telescope/telescope.nvim", version = "*" },
 		},
-		cmd = "VenvSelect",
+		ft = "python", -- Only load when opening Python files
 		opts = {
 			dap_enabled = true,
 		},
