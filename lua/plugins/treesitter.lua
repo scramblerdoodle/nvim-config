@@ -2,6 +2,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		version = "*",
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -10,6 +11,7 @@ return {
 				"html",
 				"javascript",
 				"json",
+				"kotlin",
 				"lua",
 				"markdown",
 				"markdown_inline",
