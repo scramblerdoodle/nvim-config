@@ -26,7 +26,7 @@ return {
 				["neotest-python"] = {
 					-- Here you can specify the settings for the adapter, i.e.
 					runner = "pytest",
-					-- python = ".venv/bin/python",
+					-- python = "./local-env/bin/python",
 				},
 			},
 		},
@@ -39,40 +39,47 @@ return {
 		opts = {
 			servers = {
 				pyright = {
-					settings = { typeCheckingMode = "basic" },
-				},
-				pylsp = {
-					mason = false,
 					settings = {
-						pylsp = {
-							plugins = {
-								flake8 = {
-									maxLineLength = 120,
-								},
-								rope_autoimport = {
-									enabled = true,
-								},
-								pycodestyle = {
-									maxLineLength = 120,
-									enabled = false,
-									ignore = { "E501" },
-								},
-							},
+						typeCheckingMode = "basic",
+						pycodestyle = {
+							maxLineLength = 120,
+							enabled = false,
+							ignore = { "E501" },
 						},
 					},
 				},
+				-- pylsp = {
+				-- 	mason = false,
+				-- 	settings = {
+				-- 		pylsp = {
+				-- 			plugins = {
+				-- 				flake8 = {
+				-- 					maxLineLength = 120,
+				-- 				},
+				-- 				rope_autoimport = {
+				-- 					enabled = true,
+				-- 				},
+				-- 				pycodestyle = {
+				-- 					maxLineLength = 120,
+				-- 					enabled = false,
+				-- 					ignore = { "E501" },
+				-- 				},
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 
-				ruff_lsp = {
-					-- handlers = {
-					--   ["textDocument/publishDiagnostics"] = function() end,
-					-- },
-				},
+				-- ruff_lsp = {
+				-- 	-- handlers = {
+				-- 	--   ["textDocument/publishDiagnostics"] = function() end,
+				-- 	-- },
+				-- },
 			},
 			setup = {
 				pylsp = function()
 					Snacks.util.lsp.on(function(_, client)
 						if client.name == "pylsp" then
-							-- disable hover in favor of jedi-language-server
+							-- disable hover in favor of Pyright
 							client.server_capabilities.hoverProvider = false
 						end
 					end)
@@ -88,8 +95,7 @@ return {
 				pyright = function()
 					Snacks.util.lsp.on(function(_, client)
 						if client.name == "pyright" then
-							-- disable hover in favor of jedi-language-server
-							client.server_capabilities.hoverProvider = false
+							client.server_capabilities.hoverProvider = true
 						end
 					end)
 				end,
