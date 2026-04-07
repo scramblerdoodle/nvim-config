@@ -28,3 +28,6 @@ vim.keymap.set(
 	{ desc = "Set Text Language to Brazilian (PT)" }
 )
 vim.keymap.set("n", "<leader>qh", "<cmd>lua Snacks.dashboard()<cr><esc>", { desc = "Open dashboard" })
+vim.keymap.set("n", "<leader>thr", "<cmd>Rest run<cr><esc>", { desc = "Test API call" })
+vim.keymap.set("n", "<leader>tho", "<cmd>Rest open<cr><esc>", { desc = "Open API result pane" })
+vim.keymap.set("n", "<leader>thl", "<cmd>Rest last<cr><esc>", { desc = "Rerun last test" })

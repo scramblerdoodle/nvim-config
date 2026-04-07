@@ -16,6 +16,11 @@ return {
 				group = "Copilot",
 				icon = "",
 			},
+			{
+				"<leader>th",
+				group = "Rest API",
+				icon = "",
+			},
 		},
 	},
 	keys = {
