@@ -21,6 +21,11 @@ return {
 				group = "Rest API",
 				icon = "",
 			},
+			{
+				"<leader>m",
+				group = "mark",
+				icon = "",
+			},
 		},
 	},
 	keys = {
