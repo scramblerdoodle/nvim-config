@@ -8,7 +8,10 @@
 -- noremap k j
 -- noremap j h
 
+-- Save file
 vim.keymap.set("n", "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Dictionary
 vim.keymap.set(
 	"n",
 	"<leader>zE",
@@ -27,7 +30,20 @@ vim.keymap.set(
 	"<cmd>set spell spelllang=pt_br<cr><esc>",
 	{ desc = "Set Text Language to Brazilian (PT)" }
 )
+
+-- Open dashboard
 vim.keymap.set("n", "<leader>qh", "<cmd>lua Snacks.dashboard()<cr><esc>", { desc = "Open dashboard" })
+
+-- API tests
 vim.keymap.set("n", "<leader>thr", "<cmd>Rest run<cr><esc>", { desc = "Test API call" })
 vim.keymap.set("n", "<leader>tho", "<cmd>Rest open<cr><esc>", { desc = "Open API result pane" })
 vim.keymap.set("n", "<leader>thl", "<cmd>Rest last<cr><esc>", { desc = "Rerun last test" })
+
+-- Marks
+vim.keymap.set("n", "<leader>md", function()
+	local char = vim.fn.input("Delete mark: ")
+	if char ~= "" then
+		vim.cmd("delmarks " .. char)
+	end
+end, { desc = "Delete mark" })
+vim.keymap.set("n", "<leader>mm", "<cmd>FzfLua marks<cr>", { desc = "Jump to Mark" })
