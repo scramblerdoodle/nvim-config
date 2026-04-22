@@ -7,7 +7,7 @@ local snacks = function(art)
 				width = 56,
 				sections = {
 					{ section = "header" },
-					{ pane = 2, { section = "keys", gap = 1, padding = 1 }, {} },
+					{ pane = 2, { padding = 1 }, { section = "keys", gap = 1, padding = 1 } },
 				},
 				preset = {
           -- stylua: ignore
