@@ -6,8 +6,24 @@ return {
 		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
-				flavour = "mocha",
+				flavour = "auto",
 				transparent_background = true,
+				highlight_overrides = {
+					mocha = function(colors)
+						return {
+							SnacksDashboardHeader = {
+								fg = colors.lavender,
+							},
+							SnacksDashboardIcon = {
+								fg = colors.pink,
+								bold = true,
+							},
+							SnacksDashboardDesc = {
+								fg = colors.pink,
+							},
+						}
+					end,
+				},
 			})
 		end,
 	},
