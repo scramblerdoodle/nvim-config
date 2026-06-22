@@ -2,17 +2,6 @@ return {
 	-- Mason config
 	{
 		"mason-org/mason.nvim",
-		opts = function(_, opts)
-			-- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
-			vim.list_extend(opts.ensure_installed, {
-				"black",
-				"ruff",
-				"debugpy",
-				-- "mypy",
-				-- "pyright",
-				-- "rust-analyzer",
-			})
-		end,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -31,7 +20,7 @@ return {
 		optional = true,
 		opts = {
 			formatters_by_ft = {
-				["python"] = { "ruff", "black", "isort" },
+				["python"] = { "ruff_organize_imports", "ruff_format" },
 				["json"] = { "jq" },
 				["kotlin"] = { "ktlint" },
 			},
