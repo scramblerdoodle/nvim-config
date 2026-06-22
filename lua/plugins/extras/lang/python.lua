@@ -1,16 +1,13 @@
 return {
-	-- Add `pyright` to mason
 	-- TODO: check following tools -> mypy types-requests types-docutils
 	{
 		"mason-org/mason.nvim",
 		opts = function(_, opts)
-			-- vim.list_extend(opts.ensure_installed, { "pyright", "black", "ruff-lsp", "ruff" })
 			vim.list_extend(opts.ensure_installed, {
-				"black",
+				"basedpyright",
 				"ruff",
 				"debugpy",
 				-- "mypy",
-				"pyright",
 			})
 		end,
 	},
@@ -24,9 +21,7 @@ return {
 		opts = {
 			adapters = {
 				["neotest-python"] = {
-					-- Here you can specify the settings for the adapter, i.e.
 					runner = "pytest",
-					-- python = "./local-env/bin/python",
 				},
 			},
 		},
@@ -38,18 +33,7 @@ return {
 		dependencies = {},
 		opts = {
 			servers = {
-				pyright = {
-					settings = {
-						typeCheckingMode = "basic",
-						pycodestyle = {
-							maxLineLength = 120,
-							enabled = false,
-							ignore = { "E501" },
-						},
-					},
-				},
 				-- pylsp = {
-				-- 	mason = false,
 				-- 	settings = {
 				-- 		pylsp = {
 				-- 			plugins = {
@@ -69,33 +53,37 @@ return {
 				-- 	},
 				-- },
 
-				-- ruff_lsp = {
-				-- 	-- handlers = {
-				-- 	--   ["textDocument/publishDiagnostics"] = function() end,
-				-- 	-- },
-				-- },
+				ruff = {
+					-- handlers = {
+					--   ["textDocument/publishDiagnostics"] = function() end,
+					-- },
+				},
+
+				basedpyright = {
+					settings = {
+						basedpyright = {
+							disableOrganizeImports = true,
+							analysis = {
+								diagnosticMode = "openFilesOnly",
+								typeCheckingMode = "standard",
+								autoImportCompletions = false,
+							},
+						},
+					},
+				},
 			},
 			setup = {
-				pylsp = function()
+				basedpyright = function()
 					Snacks.util.lsp.on(function(_, client)
-						if client.name == "pylsp" then
-							-- disable hover in favor of Pyright
-							client.server_capabilities.hoverProvider = false
-						end
-					end)
-				end,
-				ruff_lsp = function()
-					Snacks.util.lsp.on(function(_, client)
-						if client.name == "ruff_lsp" then
-							-- Disable hover in favor of Pyright
-							client.server_capabilities.hoverProvider = false
-						end
-					end)
-				end,
-				pyright = function()
-					Snacks.util.lsp.on(function(_, client)
-						if client.name == "pyright" then
+						if client.name == "basedpyright" then
 							client.server_capabilities.hoverProvider = true
+						end
+					end)
+				end,
+				ruff = function()
+					Snacks.util.lsp.on(function(_, client)
+						if client.name == "ruff" then
+							client.server_capabilities.hoverProvider = false
 						end
 					end)
 				end,
