@@ -95,43 +95,15 @@ return {
 		opts = function(_, opts)
 			opts.servers = opts.servers or {}
 
+			-- configure language server's options
 			opts.servers.kotlin_lsp = {
+				-- cmd = {
+				-- 	"nc",
+				-- 	"127.0.0.1",
+				-- 	"9999",
+				-- },
 				single_file_support = false,
 			}
 		end,
 	},
-
-	-- Custom Kotlin plugin for configuring everything up together
-	-- {
-	-- 	"AlexandrosAlexiou/kotlin.nvim",
-	-- 	ft = { "kotlin" },
-	-- 	dependencies = {
-	-- 		"mason.nvim",
-	-- 		"mason-lspconfig.nvim",
-	-- 		"oil.nvim",
-	-- 		"trouble.nvim",
-	-- 	},
-	-- 	config = function()
-	-- 		require("kotlin").setup({
-	-- 			-- Default: { "build.gradle", "build.gradle.kts", "pom.xml", "mvnw" }
-	-- 			root_markers = {
-	-- 				"build.gradle.kts",
-	-- 				"gradlew",
-	-- 				".git",
-	-- 				"mvnw",
-	-- 				"settings.gradle",
-	-- 			},
-	--
-	-- 			-- jre_path = nil, -- To use bundled JRE
-	--
-	-- 			-- If I want to use the specific temurin casket:
-	-- 			-- jre_path = "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home",
-	-- 			-- jdk_for_symbol_resolution = "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home",
-	--
-	-- 			jvm_args = {
-	-- 				"-Xmx4g", -- Increase max heap (useful for large projects)
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 }
