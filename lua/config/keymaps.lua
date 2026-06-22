@@ -47,3 +47,5 @@ vim.keymap.set("n", "<leader>md", function()
 	end
 end, { desc = "Delete mark" })
 vim.keymap.set("n", "<leader>mm", "<cmd>FzfLua marks<cr>", { desc = "Jump to Mark" })
+
+vim.keymap.set("n", "<leader>cP", "<cmd>MarkdownPreview<cr>", { desc = "Preview Markdown" })
