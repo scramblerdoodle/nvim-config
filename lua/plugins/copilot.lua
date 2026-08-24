@@ -1,6 +1,7 @@
 return {
 	{
 		"github/copilot.vim",
+		enabled = false,
 		config = function()
 			-- Disable Copilot on startup
 			vim.api.nvim_create_autocmd("VimEnter", {
