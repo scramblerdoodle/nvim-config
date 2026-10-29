@@ -53,6 +53,7 @@ return {
 				-- 	},
 				-- },
 
+				ruff_lsp = {},
 				ruff = {
 					-- handlers = {
 					--   ["textDocument/publishDiagnostics"] = function() end,
@@ -83,6 +84,13 @@ return {
 				ruff = function()
 					Snacks.util.lsp.on(function(_, client)
 						if client.name == "ruff" then
+							client.server_capabilities.hoverProvider = false
+						end
+					end)
+				end,
+				ruff_lsp = function()
+					Snacks.util.lsp.on(function(_, client)
+						if client.name == "ruff_lsp" then
 							client.server_capabilities.hoverProvider = false
 						end
 					end)
